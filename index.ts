@@ -19,7 +19,7 @@ import { sendETH } from "@goat-sdk/wallet-evm";
 import { viem } from "@goat-sdk/wallet-viem";
 import { modeGovernance } from "@goat-sdk/plugin-mode-governance";
 import { sonicBlaze } from "./SonicBlazeTestnet/sonic";
-
+import {allora} from "@goat-sdk/plugin-allora";
 
 
 require("dotenv").config();
@@ -49,6 +49,9 @@ const twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_A
             opensea(process.env.OPENSEA_API_KEY as string),
            // pumpfun(),
            modeGovernance(),
+           allora({ 
+            apiKey: process.env.ALLORA_API_KEY, // Get it from: https://allora.network/api-access
+        }),
         ],
     });
 
