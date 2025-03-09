@@ -1,99 +1,77 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import { uniswap } from "@goat-sdk/plugin-uniswap";
-import { modespray } from "@goat-sdk/plugin-modespray";
-import { pumpfun } from "@goat-sdk/plugin-pumpfun";
+import readline from "node:readline";
+
 import { openai } from "@ai-sdk/openai";
 import { generateText } from "ai";
-import { opensea } from "@goat-sdk/plugin-opensea";
+
 import { http } from "viem";
 import { createWalletClient } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
-import { modeTestnet } from "viem/chains";
-import twilio from "twilio";
+import { baseSepolia } from "viem/chains";
+
 import { getOnChainTools } from "@goat-sdk/adapter-vercel-ai";
-import { MODE, USDC, erc20 } from "@goat-sdk/plugin-erc20";
-import { kim } from "@goat-sdk/plugin-kim";
-import { coingecko } from "@goat-sdk/plugin-coingecko";
+import { PEPE, USDC, erc20 } from "@goat-sdk/plugin-erc20";
+
 import { sendETH } from "@goat-sdk/wallet-evm";
 import { viem } from "@goat-sdk/wallet-viem";
-import { modeGovernance } from "@goat-sdk/plugin-mode-governance";
-import { allora } from "@goat-sdk/plugin-allora";
-
 
 require("dotenv").config();
-const app = express();
-app.use(bodyParser.json()); // for parsing application/json
 
-const account = privateKeyToAccount(process.env.KEY as `0x${string}`);
+// 1. Create a wallet client
+const account = privateKeyToAccount(process.env.WALLET_PRIVATE_KEY as `0x${string}`);
 
 const walletClient = createWalletClient({
     account: account,
     transport: http(process.env.RPC_PROVIDER_URL),
-    chain: modeTestnet,
+    chain: baseSepolia,
 });
 
-const twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-
-
 (async () => {
+    // 2. Get your onchain tools for your wallet
     const tools = await getOnChainTools({
         wallet: viem(walletClient),
         plugins: [
-            sendETH(),
-            erc20({ tokens: [USDC, MODE] }),
-            kim(),
-            modespray(),
-            coingecko({ apiKey: "CG-omKTqVxpPKToZaXWYBb8bCJJ" }),
-            opensea(process.env.OPENSEA_API_KEY as string),
-           // pumpfun(),
-           modeGovernance(),
-           allora({apiKey: process.env.ALLORA_API_KEY}),
+            sendETH(), // Enable ETH transfers
+            erc20({ tokens: [USDC, PEPE] }), // Enable ERC20 token operations
         ],
     });
 
-    const app = express();
-// Parse URL-encoded bodies (as sent by HTML forms)
-app.use(bodyParser.urlencoded({ extended: true }));
+    // 3. Create a readline interface to interact with the agent
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
 
-// Parse JSON bodies (as sent by API clients)
-app.use(bodyParser.json());
+    while (true) {
+        const prompt = await new Promise<string>((resolve) => {
+            rl.question('Enter your prompt (or "exit" to quit): ', resolve);
+        });
 
+        if (prompt === "exit") {
+            rl.close();
+            break;
+        }
 
-
-
-
-    app.post("/api/send-whatsapp", async (req, res) => {
-        console.log("Headers:", req.headers);
-        console.log("Body:", req.body);  
-        const from = req.body.From;  // The sender's phone number
-        const body = req.body.Body;
-        console.log("Received WhatsApp message from", from, "with body:", body);
-
+        console.log("\n-------------------\n");
+        console.log("TOOLS CALLED");
+        console.log("\n-------------------\n");
         try {
             const result = await generateText({
                 model: openai("gpt-4o-mini"),
                 tools: tools,
-                maxSteps: 10,
-                prompt: body,
+                maxSteps: 10, // Maximum number of tool invocations per request
+                prompt: prompt,
+                onStepFinish: (event) => {
+                    console.log(event.toolResults);
+                },
             });
 
-            const message = await twilioClient.messages.create({
-                to: `whatsapp:+918658663855`,
-                from: `whatsapp:+14155238886`,
-                body: result.text
-            });
-            res.json({ success: true, message: "WhatsApp message sent with AI response.", sid: message.sid });
+            console.log("\n-------------------\n");
+            console.log("RESPONSE");
+            console.log("\n-------------------\n");
+            console.log(result.text);
         } catch (error) {
-            console.error("Failed to send WhatsApp message with AI response:", error);
-            res.status(500).json({ success: false, message: "Failed to send WhatsApp message." });
+            console.error(error);
         }
-    });
-
- 
-
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
-    });
+        console.log("\n-------------------\n");
+    }
 })();
