@@ -1,76 +1,71 @@
+# 🚀 SoniBo: Bridging Blockchain with WhatsApp Messaging
 
-<div align="center">
-<img src="https://github.com/user-attachments/assets/5fc7f121-259c-492c-8bca-f15fe7eb830c" alt="GOAT" width="100px" height="auto" style="object-fit: contain;">
-</div>
+## Overview
+SoniBo is an **AI-powered WhatsApp-based messaging agent** built on **Mode Chain**, enabling seamless interaction with blockchain technology. With simple text commands, users can **execute on-chain transactions, send funds, swap tokens, check real-time market data, manage smart contracts, and participate in prediction markets**—all within WhatsApp.
 
-# Vercel AI SDK
-## 🚀 Quickstart
+By eliminating barriers to blockchain adoption, SoniBo makes **crypto transactions accessible, intuitive, and user-friendly**.
 
-This example demonstrates how to use GOAT to allow a [Vercel AI SDK](https://sdk.vercel.ai/) agent to **send and receive ETH and ERC-20 tokens** on EVM networks. This example uses [Base Sepolia](https://base.org) but you can implement it with any other EVM network by changing the chain and RPC URL.
+## 🌍 Why WhatsApp?
+Unlike Telegram, which is commonly used for blockchain bots, **WhatsApp is the world’s most widely used messaging platform**, with over **2 billion users globally**. By integrating blockchain functionality directly into WhatsApp, **SoniBo removes the need for additional apps**, making crypto transactions as easy as sending a message.
 
-You can use this example with any other agent framework, chain, and wallet of your choice.
+This approach enhances accessibility, particularly in regions where **financial inclusion is limited** but WhatsApp usage is high.
 
-## Setup
-1. Clone the repository:
-```bash
-git clone https://github.com/goat-sdk/goat.git && cd goat
-```
+## 🔑 Key Features
 
-2. Run the following commands from the `typescript` directory:
-```bash
-cd typescript
-pnpm install
-pnpm build
-```
+✅ **ERC-20 Token Transactions**  
+Send and receive **USDC, SEI, ETH, and other ERC-20 tokens** directly within WhatsApp.
 
-3. Go to the example directory:
-```bash
-cd examples/by-framework/vercel-ai
-```
+✅ **AI-Powered Financial Assistant**  
+AI-driven analysis for **transaction recommendations, cost optimization, and fraud detection**.
 
-4. Copy the `.env.template` and populate with your values:
-```bash
-cp .env.template .env
-```
-- `OPENAI_API_KEY`
-- `WALLET_PRIVATE_KEY`
-- `RPC_PROVIDER_URL`
+✅ **CoinGecko Integration**  
+Get **real-time crypto prices, market trends, and currency conversions** instantly.
 
-5. Add some test funds to your wallet by going to any [Base Sepolia Faucet](https://www.alchemy.com/faucets/base-sepolia)
+✅ **NFT Access via OpenSea**  
+View, buy, and sell **NFTs on OpenSea** using WhatsApp.
 
-## Usage
-1. Run the interactive CLI:
-```bash
-pnpm ts-node index.ts
-```
+✅ **Polymarket Prediction Market Integration**  
+Participate in **on-chain prediction markets** and bet on real-world events.  
+AI-driven insights help users **make informed predictions**.
 
-2. Chat with the agent:
-- Check your balance for ERC-20 tokens
-- Send ERC-20 tokens to another address
-- Check your balance again to see the tokens you just sent
+✅ **Ethereum & Cross-Chain Transactions**  
+Send **ETH securely via WhatsApp**.  
+AI-assisted **SEI-to-Polygon swaps** for cross-chain transactions.
 
-## Using in production
-In production, developers require advanced wallet setups that utilize [smart wallets](https://docs.goat-sdk.com/concepts/smart-wallets), which allow them to:
-1. **Increase security** by setting programmable permissions (e.g. limiting fund amounts, restricting contract interactions, and defining required signatures)
-2. **Maintain regulatory compliance** by ensuring agent wallets are non-custodial. This means that:
-     - Launchpads, wallet providers, or agent platforms never have access to agents' wallets.
-     - Agent platforms do not require money transmitter licenses.
+✅ **Allora Integration for AI-Driven Market Predictions**  
+**Allora AI** is integrated to provide **accurate future price predictions**, helping users make informed investment decisions.
 
-### Agent Wallets
-[Crossmint](https://docs.crossmint.com/wallets/quickstarts/agent-wallets) offers one of the most advanced solutions for agent developers and launchpads: [Agent Wallets](https://docs.crossmint.com/wallets/quickstarts/agent-wallets).
+✅ **Zerepy for Enhanced Blockchain Security**  
+**Zerepy** ensures **secure and private** blockchain interactions, enhancing data protection and fraud prevention.
 
-To integrate Agent Wallets with GOAT, check out the following quickstarts:
-1. Agent Wallets Quickstart [[EVM](https://github.com/goat-sdk/goat/tree/main/typescript/examples/by-wallet/crossmint-smart-wallets), [Solana](https://github.com/goat-sdk/goat/tree/main/typescript/examples/by-wallet/crossmint-smart-wallets)]
-2. [Agent Launchpad Starter Kit](https://github.com/Crossmint/agent-launchpad-starter-kit/)
+## 🤖 How SoniBo Advances AI in Blockchain
+SoniBo integrates **AI agents** to simplify blockchain transactions, using **Natural Language Processing (NLP)** to process user commands seamlessly. AI ensures:
+- **Fraud prevention** through transaction pattern analysis
+- **Cost optimization** by finding the best transaction routes
+- **Automated insights** for smart decision-making
+- **AI-driven future price predictions** with **Allora**
+
+## 🔗 Supported Networks & Integrations
+- ✅ **Sei Network**
+- ✅ **Ethereum & Polygon**
+- ✅ **Allora & Zerepy**
+- ✅ **CoinGecko, OpenSea, Polymarket**
+- ✅ **ERC-20 & NFT Standards**
+
+## ⚡ Challenges & Solutions
+
+| Challenge | Solution |
+|-----------|----------|
+| **WhatsApp API Limitations** | Developed **middleware** to securely handle blockchain transactions. |
+| **Real-Time Data Retrieval** | Implemented **intelligent caching** and **API request batching** for efficiency. |
+| **Secure Authentication** | Added **multi-factor authentication (MFA)** and **encrypted key storage** for security. |
+| **Market Volatility & Investment Risks** | Integrated **Allora AI for predictive analytics** to assist users in making informed decisions. |
+| **Privacy & Security Concerns** | Leveraged **Zerepy** for **enhanced security and data protection**. |
+
+## 🎯 Vision
+SoniBo makes **blockchain transactions as easy as texting**. By combining **AI and WhatsApp**, it enables seamless, secure, and intuitive on-chain interactions—**no extra apps, no complexity, just effortless blockchain accessibility for everyone**.
 
 
 
-
-<footer>
-<br/>
-<br/>
-<div>
-  <img src="https://github.com/user-attachments/assets/4821833e-52e5-4126-a2a1-59e9fa9bebd7" alt="GOAT" width="100%" height="auto" style="object-fit: contain; max-width: 800px;">
-
-<div>
-</footer>
+## 📩 Contact
+For more details, reach out at [https://www.linkedin.com/in/aayushman-bhaba-padhy/](https://www.linkedin.com/in/aayushman-bhaba-padhy/).
