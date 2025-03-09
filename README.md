@@ -1,24 +1,76 @@
-# AgentChat: Bridging Blockchain with SMS and WhatsApp Messaging
 
-## Overview
+<div align="center">
+<img src="https://github.com/user-attachments/assets/5fc7f121-259c-492c-8bca-f15fe7eb830c" alt="GOAT" width="100px" height="auto" style="object-fit: contain;">
+</div>
 
-AgentChat is an innovative SMS and WhatsApp messaging agent built on Mode Chain. It empowers users to perform on-chain transactions, send funds, Currency conversion, Real time currency data, and even create and manage smart contracts—all through simple text-based communication. This approach bridges the gap between advanced blockchain functionalities and mainstream communication platforms.
+# Vercel AI SDK
+## 🚀 Quickstart
 
-## Why AgentChat?
+This example demonstrates how to use GOAT to allow a [Vercel AI SDK](https://sdk.vercel.ai/) agent to **send and receive ETH and ERC-20 tokens** on EVM networks. This example uses [Base Sepolia](https://base.org) but you can implement it with any other EVM network by changing the chain and RPC URL.
 
-Most AI-powered bots are built on platforms like Telegram, leaving out a significant global user base that relies on WhatsApp or SMS for primary communication. In many regions, people are unaware of Telegram but actively use WhatsApp and SMS. Additionally, SMS works efficiently in areas with low internet connectivity, making blockchain accessible to underconnected regions.
+You can use this example with any other agent framework, chain, and wallet of your choice.
 
-## Reason Behind Building AgentChat
+## Setup
+1. Clone the repository:
+```bash
+git clone https://github.com/goat-sdk/goat.git && cd goat
+```
 
-The inspiration for AgentChat came from a profound realization: **blockchain technology should be universally accessible, regardless of internet quality or platform familiarity.**
+2. Run the following commands from the `typescript` directory:
+```bash
+cd typescript
+pnpm install
+pnpm build
+```
 
-- **Global Accessibility**: People in remote areas often rely on SMS and WhatsApp due to limited internet connectivity and a lack of exposure to platforms like Telegram.
-- **Digital Inclusion**: By integrating blockchain with common messaging services, AgentChat levels the playing field, bringing decentralized finance (DeFi) to underserved populations.
-- **Seamless Adoption**: Using familiar tools ensures minimal learning curves, accelerating blockchain adoption.
-- **Resilience**: Even in areas with unstable internet, SMS ensures uninterrupted communication, making on-chain transactions more reliable.
+3. Go to the example directory:
+```bash
+cd examples/by-framework/vercel-ai
+```
 
-## Key Features
+4. Copy the `.env.template` and populate with your values:
+```bash
+cp .env.template .env
+```
+- `OPENAI_API_KEY`
+- `WALLET_PRIVATE_KEY`
+- `RPC_PROVIDER_URL`
 
-- **Seamless Transactions**: Execute on-chain transactions such as sending funds, minting NFTs, and deploying smart contracts.
-- **Cross-Platform Communication**: Use WhatsApp and SMS for secure blockchain interactions.
-- **Autonomous Agents**: Use AI-driven logic to automate transactions and manage wallets.
+5. Add some test funds to your wallet by going to any [Base Sepolia Faucet](https://www.alchemy.com/faucets/base-sepolia)
+
+## Usage
+1. Run the interactive CLI:
+```bash
+pnpm ts-node index.ts
+```
+
+2. Chat with the agent:
+- Check your balance for ERC-20 tokens
+- Send ERC-20 tokens to another address
+- Check your balance again to see the tokens you just sent
+
+## Using in production
+In production, developers require advanced wallet setups that utilize [smart wallets](https://docs.goat-sdk.com/concepts/smart-wallets), which allow them to:
+1. **Increase security** by setting programmable permissions (e.g. limiting fund amounts, restricting contract interactions, and defining required signatures)
+2. **Maintain regulatory compliance** by ensuring agent wallets are non-custodial. This means that:
+     - Launchpads, wallet providers, or agent platforms never have access to agents' wallets.
+     - Agent platforms do not require money transmitter licenses.
+
+### Agent Wallets
+[Crossmint](https://docs.crossmint.com/wallets/quickstarts/agent-wallets) offers one of the most advanced solutions for agent developers and launchpads: [Agent Wallets](https://docs.crossmint.com/wallets/quickstarts/agent-wallets).
+
+To integrate Agent Wallets with GOAT, check out the following quickstarts:
+1. Agent Wallets Quickstart [[EVM](https://github.com/goat-sdk/goat/tree/main/typescript/examples/by-wallet/crossmint-smart-wallets), [Solana](https://github.com/goat-sdk/goat/tree/main/typescript/examples/by-wallet/crossmint-smart-wallets)]
+2. [Agent Launchpad Starter Kit](https://github.com/Crossmint/agent-launchpad-starter-kit/)
+
+
+
+
+<footer>
+<br/>
+<br/>
+<div>
+  <img src="https://github.com/user-attachments/assets/4821833e-52e5-4126-a2a1-59e9fa9bebd7" alt="GOAT" width="100%" height="auto" style="object-fit: contain; max-width: 800px;">
+
+<div>
+</footer>
