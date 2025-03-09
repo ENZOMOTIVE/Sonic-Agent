@@ -76,6 +76,7 @@ app.use(bodyParser.json());
                 maxSteps: 10,
                 prompt: body,
             });
+            console.log("Ai Response",result);
 
              const message = await twilioClient.messages.create({
                             to: `whatsapp:+918658663855`,
