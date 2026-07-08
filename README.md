@@ -1,86 +1,71 @@
-# Sonic Agent
+# 🚀 SoniBo: Bridging Blockchain with WhatsApp Messaging
 
-> Sonic Agent is a WhatsApp-based AI agent built for the Sonic hackathon.
+## Overview
+SoniBo is an **AI-powered WhatsApp-based messaging agent** built on **Mode Chain**, enabling seamless interaction with blockchain technology. With simple text commands, users can **execute on-chain transactions, send funds, swap tokens, check real-time market data, manage smart contracts, and participate in prediction markets**—all within WhatsApp.
 
-## The Story
+By eliminating barriers to blockchain adoption, SoniBo makes **crypto transactions accessible, intuitive, and user-friendly**.
 
-Sonic Agent starts with a simple goal: make model-driven behavior useful around wallets, tokens, contracts, or blockchain workflows. Its shape tells the same story: the service layer and the AI-assisted workflow live close enough together that a maintainer can see the project as a whole before diving into individual folders.
+## 🌍 Why WhatsApp?
+Unlike Telegram, which is commonly used for blockchain bots, **WhatsApp is the world’s most widely used messaging platform**, with over **2 billion users globally**. By integrating blockchain functionality directly into WhatsApp, **SoniBo removes the need for additional apps**, making crypto transactions as easy as sending a message.
 
-## Detailed Description
+This approach enhances accessibility, particularly in regions where **financial inclusion is limited** but WhatsApp usage is high.
 
-Sonic Agent is a WhatsApp-based AI agent built for the Sonic hackathon. This README is meant to explain the project like a handoff note: what the idea is, why the repository exists, and how someone can start working with it without opening every file first.
+## 🔑 Key Features
 
-The interesting part of this project is the connection between agent behavior and on-chain or wallet-aware actions. A maintainer should be able to trace both sides: where the model-driven workflow begins, and where protocol, wallet, or transaction logic takes over.
+✅ **ERC-20 Token Transactions**  
+Send and receive **USDC, SEI, ETH, and other ERC-20 tokens** directly within WhatsApp.
 
-At the top level, the most important entry points are `Allora`, `SonicBlazeTestnet`, `SonicBo.png`, `index.ts`, and `package.json`. Together they show the current boundary of the project and make it easier to separate product code, support files, documentation, and experiments.
+✅ **AI-Powered Financial Assistant**  
+AI-driven analysis for **transaction recommendations, cost optimization, and fraud detection**.
 
-The declared Node surfaces include the root package (scripts: `test`). Those package files are the best starting points for understanding how the app runs, builds, or validates itself.
+✅ **CoinGecko Integration**  
+Get **real-time crypto prices, market trends, and currency conversions** instantly.
 
-The visible stack currently points to `Express`, `Node.js`, and `TypeScript`. Keep this list honest as the project changes so the README remains useful as a first technical map.
+✅ **NFT Access via OpenSea**  
+View, buy, and sell **NFTs on OpenSea** using WhatsApp.
 
-## What It Includes
+✅ **Polymarket Prediction Market Integration**  
+Participate in **on-chain prediction markets** and bet on real-world events.  
+AI-driven insights help users **make informed predictions**.
 
-- A service layer for APIs, realtime behavior, bot logic, or server-side workflows.
-- AI-assisted behavior through model providers, bot flows, or agent-oriented tooling.
+✅ **Ethereum & Cross-Chain Transactions**  
+Send **ETH securely via WhatsApp**.  
+AI-assisted **SEI-to-Polygon swaps** for cross-chain transactions.
 
-## How It Is Put Together
+✅ **Allora Integration for AI-Driven Market Predictions**  
+**Allora AI** is integrated to provide **accurate future price predictions**, helping users make informed investment decisions.
 
-| Path | Role |
-| --- | --- |
-| `.gitattributes` | project file or folder |
-| `.gitignore` | ignored local, dependency, and build files |
-| `Allora` | project file or folder |
-| `SonicBlazeTestnet` | project file or folder |
-| `SonicBo.png` | project file or folder |
-| `index.ts` | TypeScript source |
-| `package-lock.json` | locked dependency versions |
-| `package.json` | Node package scripts and dependencies |
-| `tsconfig.base.json` | TypeScript compiler settings |
-| `tsconfig.json` | TypeScript compiler settings |
+✅ **Zerepy for Enhanced Blockchain Security**  
+**Zerepy** ensures **secure and private** blockchain interactions, enhancing data protection and fraud prevention.
 
-## Local Development
+## 🤖 How SoniBo Advances AI in Blockchain
+SoniBo integrates **AI agents** to simplify blockchain transactions, using **Natural Language Processing (NLP)** to process user commands seamlessly. AI ensures:
+- **Fraud prevention** through transaction pattern analysis
+- **Cost optimization** by finding the best transaction routes
+- **Automated insights** for smart decision-making
+- **AI-driven future price predictions** with **Allora**
 
-```bash
-git clone https://github.com/ENZOMOTIVE/Sonic-Agent.git
-cd Sonic-Agent
-```
+## 🔗 Supported Networks & Integrations
+- ✅ **Sei Network**
+- ✅ **Ethereum & Polygon**
+- ✅ **Allora & Zerepy**
+- ✅ **CoinGecko, OpenSea, Polymarket**
+- ✅ **ERC-20 & NFT Standards**
 
-```bash
-npm install
-```
+## ⚡ Challenges & Solutions
 
-## Command Surface
+| Challenge | Solution |
+|-----------|----------|
+| **WhatsApp API Limitations** | Developed **middleware** to securely handle blockchain transactions. |
+| **Real-Time Data Retrieval** | Implemented **intelligent caching** and **API request batching** for efficiency. |
+| **Secure Authentication** | Added **multi-factor authentication (MFA)** and **encrypted key storage** for security. |
+| **Market Volatility & Investment Risks** | Integrated **Allora AI for predictive analytics** to assist users in making informed decisions. |
+| **Privacy & Security Concerns** | Leveraged **Zerepy** for **enhanced security and data protection**. |
 
-| Area | Commands |
-| --- | --- |
-| `package.json` | `test` |
-
-## Configuration
-
-- Document API ports, database URLs, third-party credentials, and service endpoints in `.env.example` before deployment.
-- Keep wallet private keys, RPC URLs, mnemonics, and contract secrets outside version control.
-- Keep model provider keys such as OpenAI or AI SDK credentials in local environment files only.
-
-## Quality Checks
-
-- From the repository root, run `npm test`.
-
-## Where To Take It Next
-
-- Document the main API routes, bot events, or service responsibilities with example inputs and outputs.
-- Describe the model provider, prompt boundaries, and evaluation approach for the AI-assisted parts.
-- Keep setup commands current whenever dependencies, scripts, or deployment targets change.
-- Record important product decisions here so the repository keeps its story as the code evolves.
-
-## Project Metadata
-
-| Field | Details |
-| --- | --- |
-| Repository | `ENZOMOTIVE/Sonic-Agent` |
-| Categories | `Agentic AI`, `Protocol` |
-| Primary stack | Express, Node.js, TypeScript |
+## 🎯 Vision
+SoniBo makes **blockchain transactions as easy as texting**. By combining **AI and WhatsApp**, it enables seamless, secure, and intuitive on-chain interactions—**no extra apps, no complexity, just effortless blockchain accessibility for everyone**.
 
 
-## License
 
-No license file is currently committed. Add one before distributing this project publicly.
+## 📩 Contact
+For more details, reach out at [https://www.linkedin.com/in/aayushman-bhaba-padhy/](https://www.linkedin.com/in/aayushman-bhaba-padhy/).
